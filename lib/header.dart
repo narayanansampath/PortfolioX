@@ -8,15 +8,15 @@ import 'package:velocity_x/velocity_x.dart';
 class HeaderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final nameWidget = "Pawan\nKumar."
+    final nameWidget = "Sampath\nNarayanan."
         .text
         .white
         .xl6
         .lineHeight(1)
-        .size(context.isMobile ? 15 : 20)
+        .size(context.isMobile ? 10 : 20)
         .bold
         .make()
-        .shimmer();
+        .shimmer(primaryColor: Coolors.accentColor);
     return SafeArea(
       child: VxBox(
               child: VStack([
@@ -40,20 +40,9 @@ class HeaderScreen extends StatelessWidget {
                   30.heightBox,
                   SocialAccounts(),
                 ]).pSymmetric(
-                  h: context.percentWidth * 10,
+                  h: context.isMobile ? context.percentWidth * 4 : context.percentWidth * 10,
                   v: 32,
                 ),
-                Expanded(
-                  child: VxResponsive(
-                    medium: IntroductionWidget()
-                        .pOnly(left: 120)
-                        .h(context.percentHeight * 60),
-                    large: IntroductionWidget()
-                        .pOnly(left: 120)
-                        .h(context.percentHeight * 60),
-                    fallback: const Offstage(),
-                  ),
-                )
               ],
             ).w(context.screenWidth)
           ],
@@ -76,31 +65,16 @@ class IntroductionWidget extends StatelessWidget {
     return VStack(
       [
         [
-          " - Introduction".text.gray500.widest.sm.make(),
-          10.heightBox,
-          "@googledevexpert for Flutter, Firebase, Dart & Web.\nPublic Speaker, Blogger, Entrepreneur & YouTuber.\nFounder of MTechViral."
+          "Programmer by day, Programmer by night.\nFlutter, Dart, Android, ML & Python."
               .text
               .white
               .xl3
               .maxLines(5)
               .make()
-              .w(context.isMobile
-                  ? context.screenWidth
-                  : context.percentWidth * 40),
+              .w(context.screenWidth),
           20.heightBox,
         ].vStack(),
-        RaisedButton(
-          onPressed: () {
-            launch("https://mtechviral.com");
-          },
-          hoverColor: Vx.purple700,
-          shape: Vx.roundedSm,
-          color: Coolors.accentColor,
-          textColor: Coolors.primaryColor,
-          child: "Visit mtechviral.com".text.make(),
-        ).h(50)
       ],
-      // crossAlignment: CrossAxisAlignment.center,
       alignment: MainAxisAlignment.spaceEvenly,
     );
   }
@@ -128,16 +102,17 @@ class PictureWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Transform(
-      alignment: Alignment.center,
-      origin: Offset(context.percentWidth * 2, 0),
-      transform: Matrix4.rotationY(pi),
-      child: Image.asset(
-        "assets/pic.png",
-        fit: BoxFit.cover,
-        height: context.percentHeight * 60,
-      ),
-    );
+      return Transform(
+        alignment: Alignment.center,
+        origin: context.isMobile ? Offset(context.percentWidth * 22, 0) :  Offset(context.percentWidth * 25, 0),
+        transform: Matrix4.rotationY(pi),
+        child: Image.asset(
+          "assets/profile.png",
+          fit: BoxFit.cover,
+          height: context.percentHeight * 60,
+        ),
+      );
+
   }
 }
 
@@ -146,31 +121,17 @@ class SocialAccounts extends StatelessWidget {
   Widget build(BuildContext context) {
     return [
       Icon(
-        AntDesign.twitter,
+        AntDesign.linkedin_square,
         color: Colors.white,
       ).mdClick(() {
-        launch("https://twitter.com/imthepk");
-      }).make(),
-      20.widthBox,
-      Icon(
-        AntDesign.instagram,
-        color: Colors.white,
-      ).mdClick(() {
-        launch("https://instagram.com/codepur_ka_superhero");
-      }).make(),
-      20.widthBox,
-      Icon(
-        AntDesign.youtube,
-        color: Colors.white,
-      ).mdClick(() {
-        launch("https://youtube.com/mtechviral");
+        launch("https://www.linkedin.com/in/narayanan-sampath/");
       }).make(),
       20.widthBox,
       Icon(
         AntDesign.github,
         color: Colors.white,
       ).mdClick(() {
-        launch("https://github.com/iampawan");
+        launch("https://github.com/narayanansampath");
       }).make()
     ].hStack();
   }

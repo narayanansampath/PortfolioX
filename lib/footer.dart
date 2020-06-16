@@ -15,7 +15,7 @@ class FooterScreen extends StatelessWidget {
             [
               "Got a project?\nLet's talk.".text.center.white.xl2.make(),
               10.heightBox,
-              "mtechviral@gmail.com"
+              "sampathnarayanan72@gmail.com"
                   .text
                   .color(Coolors.accentColor)
                   .semiBold
@@ -32,7 +32,7 @@ class FooterScreen extends StatelessWidget {
             [
               "Got a project?\nLet's talk.".text.center.white.xl2.make(),
               10.widthBox,
-              "mtechviral@gmail.com"
+              "sampathnarayanan72@gmail.com"
                   .text
                   .color(Coolors.accentColor)
                   .semiBold
@@ -50,12 +50,12 @@ class FooterScreen extends StatelessWidget {
         CustomAppBar(),
         10.heightBox,
         "Thanks for scrolling, ".richText.semiBold.white.withTextSpanChildren(
-            ["that's all folks.".textSpan.gray500.make()]).make(),
+            ["that's all folks.".textSpan.gray500.make()]).center.make(),
         10.heightBox,
         SocialAccounts(),
         30.heightBox,
         [
-          "Made in India with".text.red500.make(),
+          "Made in Toronto with".text.red500.make(),
           10.widthBox,
           Icon(
             AntDesign.heart,

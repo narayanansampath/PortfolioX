@@ -13,12 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'PortfolioX',
+      title: 'Portfolio',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        primarySwatch: Coolors.customColor,
         accentColor: Coolors.secondaryColor,
-        textTheme: GoogleFonts.poppinsTextTheme(),
+        textTheme: GoogleFonts.latoTextTheme(),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: HomeScreen(),
